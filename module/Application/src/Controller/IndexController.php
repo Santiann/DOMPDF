@@ -26,7 +26,7 @@ class IndexController extends AbstractActionController
         $dompdf = new Dompdf();
         $dompdf->setOptions($options);
 
-        $path = 'C:\Versionamento\teste\teste\public\img\teste.png';
+        $path = 'C:\Versionamento\teste\teste\public\img\logo.png';
         $type = pathinfo($path, PATHINFO_EXTENSION);
         $data = file_get_contents($path);
         $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
@@ -45,6 +45,6 @@ class IndexController extends AbstractActionController
         // Salve o PDF em um arquivo
         $dompdf->output();
 
-        $dompdf->stream('teste.pdf', ['Attachment' => false]);
+        $dompdf->stream('neodent.pdf', ['Attachment' => false]);
     }
 }
